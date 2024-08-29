@@ -18,23 +18,31 @@ def download_model():
 
 model = download_model()
 
-# Function to preprocess the uploaded image
 def preprocess_image(image):
-    image = image.resize((224, 224))  # Adjust based on your model's input size
-    image = np.array(image) / 255.0   # Normalize
+    image = image.resize((224, 224))
+    image = np.array(image) / 255.0
     image = np.expand_dims(image, axis=0)
     return image
+    
+class_labels = ['CaS', 'CoS', 'Gum', 'MC', 'OC', 'OLP', 'OT']
 
-# Function to make predictions
 def predict(image):
     processed_image = preprocess_image(image)
     prediction = model.predict(processed_image)
+    predicted_class_index = np.argmax(prediction)
+    predicted_label = class_labels[predicted_class_index]
     return prediction
 
-# Streamlit interface
 st.title("Teeth Condition Classification")
 
-uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
+uploaded_file = st.file_uploader("Choose an image from one of these categories:
+CaS: Calsium Sulfate
+CoS: Clinical Oral Surgery
+Gum
+MC: Metal Crown
+OC: Oral Cavity 
+OLP: Oral Lichen Planus
+OT: Occlusal Therapy", type=["jpg", "jpeg", "png"])
 
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
