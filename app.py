@@ -31,7 +31,7 @@ def predict(image):
     prediction = model.predict(processed_image)
     predicted_class_index = np.argmax(prediction)
     predicted_label = class_labels[predicted_class_index]
-    return prediction
+    return predicted_label
 
 st.title("Teeth Condition Classification")
 
