@@ -35,14 +35,7 @@ def predict(image):
 
 st.title("Teeth Condition Classification")
 
-uploaded_file = st.file_uploader("Choose an image from one of these categories:
-CaS: Calsium Sulfate
-CoS: Clinical Oral Surgery
-Gum
-MC: Metal Crown
-OC: Oral Cavity 
-OLP: Oral Lichen Planus
-OT: Occlusal Therapy", type=["jpg", "jpeg", "png"])
+uploaded_file = st.file_uploader("Choose an image representing one of these categories: CaS, CoS, Gum, MC, OC, OLP or OT", type=["jpg", "jpeg", "png"])
 
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
