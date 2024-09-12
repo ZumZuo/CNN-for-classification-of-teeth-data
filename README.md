@@ -1,2 +1,1 @@
-This repository will include all my projects for my internship at Cellula Technologies as a Computer Vision Engineer.
-I will typically upload .py files and pre-trained models for your convenience if you would like to try them out on your own data.
+This week's data is the same as last week's satellite images, only difference is I used a pretrained U-Net with ResNet34 backbone for my image segmentation model to label aquatic areas, finetuning it for better fitting to the label masks and better predictions.
