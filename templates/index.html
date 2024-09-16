@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Segmentation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Water Segmentation Classifier</h1>
+        <p>Upload a satellite image to detect and classify water bodies.</p>
+        <form id="upload-form" enctype="multipart/form-data">
+            <input type="file" id="file-input" name="file" accept=".tif,.png,.jpg">
+            <button type="submit">Upload and Predict</button>
+        </form>
+        <div class="result">
+            <div class="image-container">
+                <h2 id="rgb-title" class="hidden">RGB Image:</h2>
+                <img id="rgb-image" class="hidden" src="" alt="RGB Image">
+
+                <h2 id="mask-title" class="hidden">Overlayed Mask:</h2>
+                <img id="overlay-mask" class="hidden" src="" alt="Overlay Mask">
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
